@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'EventPulseAIapp',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,6 +72,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'EventPulseAIProject.wsgi.application'
 
+# Allow your local React development server
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
